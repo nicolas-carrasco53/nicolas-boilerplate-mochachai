@@ -32,7 +32,7 @@ test('#isTrue, #isNotTrue', function() {
   assert.isNotTrue(
     { value: 'truthy' },
     'A truthy object is NOT TRUE (neither is false...)'
-  );
+  });
 });
   // -----------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ test('#isTrue, #isNotTrue', function() {
 
   function weirdNumbers(delta) {
     return 1 + delta - Math.random();
-  };
+ });
 
   suite('Comparisons', function () {
     // #8
@@ -107,7 +107,7 @@ test('#isTrue, #isNotTrue', function() {
 
   const formatPeople = function (name, age) {
     return '# name: ' + name + ', age: ' + age + '\n';
-  };
+});
   suite('Strings', function () {
     // #13
     test('#isString, #isNotString', function () {
@@ -134,14 +134,14 @@ test('#isTrue, #isNotTrue', function() {
     this.model = 'sedan';
     this.engines = 1;
     this.wheels = 4;
-  };
+  });
 
   const Plane = function () {
     this.model = '737';
     this.engines = ['left', 'right'];
     this.wheels = 6;
     this.wings = 2;
-  };
+  });
 
   const myCar = new Car();
   const airlinePlane = new Plane();
