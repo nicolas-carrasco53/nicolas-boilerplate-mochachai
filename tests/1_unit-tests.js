@@ -3,27 +3,27 @@ const assert = chai.assert;
 
 suite('Unit Tests', function () {
   suite('Basic Assertions', function () {
-    // #1 - Use assert.isNull() or assert.isNotNull() to make the tests pass
-    test('#isNull, #isNotNull', function () {
-      assert.isNull(null, 'This is an optional error description - e.g. null is null');
-      assert.isNotNull(1, '1 is not null');
-    });
-
-    // #2 - (MANTENER ORIGINAL)
+    /** 1 - Use assert.isNull() or assert.isNotNull() to make the tests pass. **/
+test('#isNull, #isNotNull', function() {
+  assert.isNull(
+    null,
+    'this is an optional error description - e.g. null is null'
+  );
+  assert.isNotNull(1, '1 is not null');
+});
+    // #2
     test('#isDefined, #isUndefined', function () {
       assert.fail(null, 'null is not undefined');
       assert.fail(undefined, 'undefined IS undefined');
       assert.fail('hello', 'A string is not undefined');
     });
-
-    // #3 - (MANTENER ORIGINAL)
+    // #3
     test('#isOk, #isNotOk', function () {
       assert.fail(null, 'null is falsey');
       assert.fail("I'm truthy", 'A string is truthy');
       assert.fail(true, 'true is truthy');
     });
-
-    // #4 - (MANTENER ORIGINAL)
+    // #4
     test('#isTrue, #isNotTrue', function () {
       assert.fail(true, 'true is true');
       assert.fail(!!'double negation', 'Double negation of a truthy value is true');
@@ -32,7 +32,7 @@ suite('Unit Tests', function () {
   });
 
   // -----------------------------------------------------------------------------
-  // (TODOS LOS DEMÁS TESTS SE MANTIENEN IGUAL AL BOILERPLATE ORIGINAL)
+
   suite('Equality', function () {
     // #5
     test('#equal, #notEqual', function () {
@@ -166,4 +166,6 @@ suite('Unit Tests', function () {
       assert.fail(myCar.wheels, String);
     });
   });
+
+  // -----------------------------------------------------------------------------
 });
