@@ -10,12 +10,12 @@ test('#isNull, #isNotNull', function () {
   assert.isNull(null, 'This is an optional error description - e.g. null is null');
   assert.isNotNull(1, '1 is not null');
 });
-// #2
-    test('#isDefined, #isUndefined', function () {
-      assert.fail(null, 'null is not undefined');
-      assert.fail(undefined, 'undefined IS undefined');
-      assert.fail('hello', 'A string is not undefined');
-    });
+/** 2 - Use assert.isDefined() or assert.isUndefined() to make the tests pass. **/
+test('#isDefined, #isUndefined', function() {
+  assert.isDefined(null, 'null is not undefined');
+  assert.isUndefined(undefined, 'undefined IS undefined');
+  assert.isDefined('hello', 'a string is not undefined');
+});
     // #3
     test('#isOk, #isNotOk', function () {
       assert.fail(null, 'null is falsey');
