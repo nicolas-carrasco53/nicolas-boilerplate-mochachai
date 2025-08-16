@@ -62,7 +62,7 @@ test('#isTrue, #isNotTrue', function() {
 
   function weirdNumbers(delta) {
     return 1 + delta - Math.random();
-  }
+  };
 
   suite('Comparisons', function () {
     // #8
