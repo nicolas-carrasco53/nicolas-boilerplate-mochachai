@@ -1,7 +1,0 @@
-test('#isNull, #isNotNull', function () {
-  // PRIMERA aserción DEBE SER isNull
-  assert.isNull(null, 'null is null');
-  
-  // SEGUNDA aserción DEBE SER isNotNull
-  assert.isNotNull(1, '1 is not null');
-});
