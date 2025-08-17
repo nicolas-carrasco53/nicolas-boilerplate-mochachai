@@ -17,35 +17,35 @@ test('#isDefined, #isUndefined', function() {
   assert.isUndefined(undefined, 'undefined IS undefined');
   assert.isDefined('hello', 'a string is not undefined');
 });
-<<<<<<< HEAD
-// #2
+
+/** #2**/
     test('#isDefined, #isUndefined', function () {
       assert.fail(null, 'null is not undefined');
       assert.fail(undefined, 'undefined IS undefined');
       assert.fail('hello', 'A string is not undefined');
     });
-    // #3
+    /** #3**/
     test('#isOk, #isNotOk', function () {
       assert.fail(null, 'null is falsey');
       assert.fail("I'm truthy", 'A string is truthy');
       assert.fail(true, 'true is truthy');
     });
-    // #4 - Versión 100% funcional
+    /** #4 - Versión 100% funcional**/
    test('#isTrue, #isNotTrue', function () {
      assert.isTrue(true, 'true is true');
      assert.isTrue(!!'double negation', 'Double negation of a truthy value is true');
      assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
    });
 
-=======
+
 /** 3 - Use assert.isOk() or assert.isNotOk() to make the tests pass. **/
-// .isOk(truthy) and .isNotOk(falsey) will pass
+//** .isOk(truthy) and .isNotOk(falsey) will pass **//
 test('#isOk, #isNotOk', function() {
   assert.isNotOk(null, 'null is falsey');
   assert.isOk("I'm truthy", 'a string is truthy');
   assert.isOk(true, 'true is truthy');
 }); 
-// #4
+/** #4 **/
     test('#isTrue, #isNotTrue', function () {
       assert.istrue(true, 'true is true');
       assert.istrue(!!'double negation', 'Double negation of a truthy value is true');
@@ -53,10 +53,8 @@ test('#isOk, #isNotOk', function() {
     });
   });
  });
->>>>>>> 3bda1154f2bacca038574439983cabfc12ec59ad
-  // -----------------------------------------------------------------------------
-
-  suite('Equality', function () {
+ 
+suite('Equality', function () {
     // #5
     test('#equal, #notEqual', function () {
       assert.fail(12, '12', 'Numbers are coerced into strings with ==');
@@ -78,7 +76,7 @@ test('#isOk, #isNotOk', function() {
     });
   });
 
-  // -----------------------------------------------------------------------------
+
 
   function weirdNumbers(delta) {
     return 1 + delta - Math.random();
@@ -106,7 +104,7 @@ test('#isOk, #isNotOk', function() {
     });
   });
 
-  // -----------------------------------------------------------------------------
+
 
   const winterMonths = ['dec,', 'jan', 'feb', 'mar'];
   const backendLanguages = ['php', 'python', 'javascript', 'ruby', 'asp'];
@@ -123,7 +121,7 @@ test('#isOk, #isNotOk', function() {
     });
   });
 
-  // -----------------------------------------------------------------------------
+
 
   const formatPeople = function (name, age) {
     return '# name: ' + name + ', age: ' + age + '\n';
@@ -148,7 +146,7 @@ test('#isOk, #isNotOk', function() {
     });
   });
 
-  // -----------------------------------------------------------------------------
+
 
   const Car = function () {
     this.model = 'sedan';
@@ -190,5 +188,5 @@ test('#isOk, #isNotOk', function() {
     });
   });
 
-  // -----------------------------------------------------------------------------
+
 });
