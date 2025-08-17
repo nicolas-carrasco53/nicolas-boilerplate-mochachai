@@ -3,27 +3,28 @@ const assert = chai.assert;
 
 suite('Unit Tests', function () {
   suite('Basic Assertions', function () {
-
-
-// #1 - Prueba corregida
-test('#isNull, #isNotNull', function () {
-  assert.isNull(null, 'This is an optional error description - e.g. null is null');
+    /** 1 - Use assert.isNull() or assert.isNotNull() to make the tests pass. **/
+test('#isNull, #isNotNull', function() {
+  assert.isNull(
+    null,
+    'this is an optional error description - e.g. null is null'
+  );
   assert.isNotNull(1, '1 is not null');
-});
+});   
 /** 2 - Use assert.isDefined() or assert.isUndefined() to make the tests pass. **/
 test('#isDefined, #isUndefined', function() {
   assert.isDefined(null, 'null is not undefined');
   assert.isUndefined(undefined, 'undefined IS undefined');
   assert.isDefined('hello', 'a string is not undefined');
 });
-  /** 3 - Use assert.isOk() or assert.isNotOk() to make the tests pass. **/
+/** 3 - Use assert.isOk() or assert.isNotOk() to make the tests pass. **/
 // .isOk(truthy) and .isNotOk(falsey) will pass
 test('#isOk, #isNotOk', function() {
   assert.isNotOk(null, 'null is falsey');
   assert.isOk("I'm truthy", 'a string is truthy');
   assert.isOk(true, 'true is truthy');
-});
- /** 4 - Use assert.isTrue() or assert.isNotTrue() to make the tests pass. **/
+}); 
+/** 4 - Use assert.isTrue() or assert.isNotTrue() to make the tests pass. **/
 // .isTrue(true) and .isNotTrue(everything else) will pass.
 // .isFalse() and .isNotFalse() also exist.
 test('#isTrue, #isNotTrue', function() {
@@ -32,7 +33,7 @@ test('#isTrue, #isNotTrue', function() {
   assert.isNotTrue(
     { value: 'truthy' },
     'A truthy object is NOT TRUE (neither is false...)'
-  });
+  );
 });
   // -----------------------------------------------------------------------------
 
@@ -62,7 +63,7 @@ test('#isTrue, #isNotTrue', function() {
 
   function weirdNumbers(delta) {
     return 1 + delta - Math.random();
- });
+  }
 
   suite('Comparisons', function () {
     // #8
@@ -107,7 +108,7 @@ test('#isTrue, #isNotTrue', function() {
 
   const formatPeople = function (name, age) {
     return '# name: ' + name + ', age: ' + age + '\n';
-});
+  };
   suite('Strings', function () {
     // #13
     test('#isString, #isNotString', function () {
@@ -134,14 +135,14 @@ test('#isTrue, #isNotTrue', function() {
     this.model = 'sedan';
     this.engines = 1;
     this.wheels = 4;
-  });
+  };
 
   const Plane = function () {
     this.model = '737';
     this.engines = ['left', 'right'];
     this.wheels = 6;
     this.wings = 2;
-  });
+  };
 
   const myCar = new Car();
   const airlinePlane = new Plane();
@@ -171,4 +172,4 @@ test('#isTrue, #isNotTrue', function() {
   });
 
   // -----------------------------------------------------------------------------
-});//
+});
