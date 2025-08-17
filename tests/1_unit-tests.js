@@ -3,13 +3,21 @@ const assert = chai.assert;
 
 suite('Unit Tests', function () {
   suite('Basic Assertions', function () {
-
-
-// #1 - Prueba corregida
-test('#isNull, #isNotNull', function () {
-  assert.isNull(null, 'This is an optional error description - e.g. null is null');
+    /** 1 - Use assert.isNull() or assert.isNotNull() to make the tests pass. **/
+test('#isNull, #isNotNull', function() {
+  assert.isNull(
+    null,
+    'this is an optional error description - e.g. null is null'
+  );
   assert.isNotNull(1, '1 is not null');
+});   
+/** 2 - Use assert.isDefined() or assert.isUndefined() to make the tests pass. **/
+test('#isDefined, #isUndefined', function() {
+  assert.isDefined(null, 'null is not undefined');
+  assert.isUndefined(undefined, 'undefined IS undefined');
+  assert.isDefined('hello', 'a string is not undefined');
 });
+<<<<<<< HEAD
 // #2
     test('#isDefined, #isUndefined', function () {
       assert.fail(null, 'null is not undefined');
@@ -27,8 +35,25 @@ test('#isNull, #isNotNull', function () {
      assert.isTrue(true, 'true is true');
      assert.isTrue(!!'double negation', 'Double negation of a truthy value is true');
      assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
-   });  // ← ¡Este cierre es crucial!
+   });
 
+=======
+/** 3 - Use assert.isOk() or assert.isNotOk() to make the tests pass. **/
+// .isOk(truthy) and .isNotOk(falsey) will pass
+test('#isOk, #isNotOk', function() {
+  assert.isNotOk(null, 'null is falsey');
+  assert.isOk("I'm truthy", 'a string is truthy');
+  assert.isOk(true, 'true is truthy');
+}); 
+// #4
+    test('#isTrue, #isNotTrue', function () {
+      assert.istrue(true, 'true is true');
+      assert.istrue(!!'double negation', 'Double negation of a truthy value is true');
+      assert.istrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
+    });
+  });
+ });
+>>>>>>> 3bda1154f2bacca038574439983cabfc12ec59ad
   // -----------------------------------------------------------------------------
 
   suite('Equality', function () {
