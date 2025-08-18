@@ -29,7 +29,6 @@ suite('Unit Tests', function () {
     assert.isTrue(!!'double negation', 'Double negation of a truthy value is true');
     assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
   });
-});
  
 suite('Equality', function () {
     // #5
