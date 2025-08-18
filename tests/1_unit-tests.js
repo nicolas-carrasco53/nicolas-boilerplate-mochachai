@@ -162,3 +162,4 @@ suite('Equality', function () {
       assert.fail(airlinePlane, Object);
       assert.fail(myCar.wheels, String);
     });
+  });
