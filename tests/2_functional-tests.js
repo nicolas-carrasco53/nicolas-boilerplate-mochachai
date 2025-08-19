@@ -99,3 +99,4 @@ suite('Functional Tests', function () {
         });
     });
   });
+});
