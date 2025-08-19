@@ -42,8 +42,12 @@ suite('Functional Tests', function () {
         .request(server)
         .keepOpen()
         .put('/travellers')
+        .send({ surname: 'Colombo' })
         .end(function (err, res) {
-          assert.equal(); // ← esto necesita completar los argumentos
+          assert.equal(res.status, 200);
+          assert.equal(res.type, 'application/json');
+          assert.equal(res.body.name, 'Cristoforo');
+          assert.equal(res.body.surname, 'Colombo');
           done();
         });
     });
@@ -65,10 +69,23 @@ suite('Functional Tests', function () {
   });
 
   suite('"Famous Italian Explorers" form', function () {
-    // #5
-    test('Submit the surname "Colombo" in the HTML form', function (done) {
-      assert.fail();
-      done();
+    // #5 (reemplazado con tu código)
+    test('send {surname: "Colombo"}', function (done) {
+      // we setup the request for you...
+      chai
+        .request(server)
+        .put('/travellers')
+        /** send {surname: 'Colombo'} here **/
+        .send({ surname: 'Colombo' })
+        // .send({...})
+        .end(function (err, res) {
+          /** your tests here **/
+          assert.equal(res.status, 200, 'response status should be 200');
+          assert.equal(res.type, 'application/json', 'Response should be json');
+          assert.equal(res.body.name, 'Cristoforo', 'res.body.name should be "Christoforo"');
+          assert.equal(res.body.surname, 'Colombo', 'res.body.surname should be "Colombo"');
+          done(); // Never forget the 'done()' callback...
+        });
     });
 
     // #6
