@@ -172,8 +172,8 @@ suite('Unit Tests', function () {
 
     // #18
     test('#instanceOf, #notInstanceOf', function () {
-      assert.typeOf(myCar, Plane);
-      assert.typeOf(airlinePlane, Plane);
+      assert.fail(myCar, Plane);
+      assert.fail(airlinePlane, Plane);
       assert.fail(airlinePlane, Object);
       assert.fail(myCar.wheels, String);
     });
