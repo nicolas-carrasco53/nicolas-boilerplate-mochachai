@@ -163,3 +163,4 @@ suite('Equality', function () {
       assert.fail(myCar.wheels, String);
     });
   });
+});
