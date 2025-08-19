@@ -69,38 +69,34 @@ suite('Functional Tests', function () {
   });
 
   suite('"Famous Italian Explorers" form', function () {
-    // #5 (reemplazado con tu código)
+    // #5
     test('send {surname: "Colombo"}', function (done) {
-      // we setup the request for you...
       chai
         .request(server)
         .put('/travellers')
-        /** send {surname: 'Colombo'} here **/
         .send({ surname: 'Colombo' })
-        // .send({...})
         .end(function (err, res) {
-          /** your tests here **/
           assert.equal(res.status, 200, 'response status should be 200');
           assert.equal(res.type, 'application/json', 'Response should be json');
           assert.equal(res.body.name, 'Cristoforo', 'res.body.name should be "Christoforo"');
           assert.equal(res.body.surname, 'Colombo', 'res.body.surname should be "Colombo"');
-          done(); // Never forget the 'done()' callback...
+          done();
         });
     });
 
-    // #6
-    test('Submit the surname "Vespucci" in the HTML form', function (done) {
+    // #6 (reemplazado)
+    test('send {surname: "da Verrazzano"}', function (done) {
       chai
         .request(server)
-        .put('/travellers') 
+        .put('/travellers')
         .send({ surname: 'da Verrazzano' })
-        .end(function(err, res) {
-         assert.equal(res.status, 200, 'response status should be 200');
-         assert.equal(res.type, 'application/json', 'Response should be json');
-         assert.equal(res.body.name, 'Giovanni');
-         assert.equal(res.body.surname, 'da Verrazzano');
-      done();
+        .end(function (err, res) {
+          assert.equal(res.status, 200, 'response status should be 200');
+          assert.equal(res.type, 'application/json', 'Response should be json');
+          assert.equal(res.body.name, 'Giovanni');
+          assert.equal(res.body.surname, 'da Verrazzano');
+          done();
+        });
     });
   });
-});
 });
