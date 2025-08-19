@@ -103,3 +103,4 @@ suite('Functional Tests', function () {
     });
   });
 });
+});
