@@ -86,9 +86,9 @@ suite('Functional Tests', function () {
     suite('"Famous Italian Explorers" form', function () {
       // #5
       test('Submit the surname "Colombo" in the HTML form', function (done) {
-        browser
-          .fill('surname', 'Colombo')
-          .then(() => {
+      browser
+        .fill('surname', 'Colombo')
+        .then(() => {
           browser.pressButton('submit', function () {
             browser.assert.success();
             browser.assert.text('span#name', 'Cristoforo');
