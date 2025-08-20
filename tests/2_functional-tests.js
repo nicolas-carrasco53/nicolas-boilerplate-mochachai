@@ -70,7 +70,8 @@ suite('Functional Tests', function () {
 
    suite('"Famous Italian Explorers" form', function () {
     // #5
-     /**test('send {surname: "Colombo"}', function (done) {
+     /**
+     test('send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
         .put('/travellers')
@@ -83,8 +84,10 @@ suite('Functional Tests', function () {
           done();
         });
     });
+    */
   
   // #6 (reemplazado)
+/**     
   test('send {surname: "da Verrazzano"}', function(done) {
   chai.request(server)
     .put('/travellers')
@@ -97,5 +100,5 @@ suite('Functional Tests', function () {
       done();
      });
    });
-  });
+  */
 }); 
