@@ -86,10 +86,12 @@ suite('Functional Tests', function () {
 
     // #6 (reemplazado)
     test('send {surname: "da Verrazzano"}', function (done) {
-      chai
-        .request(server)
-        .put('/travellers')
-        .send({ surname: 'da Verrazzano' })
+      chai.request(server)
+          .put('/travellers')
+          .send({ 
+            surname: "da Verrazzano" 
+            name: "Giovanni"
+          })
         .end(function (err, res) {
           assert.equal(res.status, 200, 'response status should be 200');
           assert.equal(res.type, 'application/json', 'Response should be json');
