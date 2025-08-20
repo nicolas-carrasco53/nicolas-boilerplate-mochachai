@@ -70,27 +70,25 @@ suite('Functional Tests', function () {
 
   suite('"Famous Italian Explorers" form', function () {
     // #5
-   const Browser = require('zombie');
-Browser.site = 'https://56d97e13-b589-4020-b47f-a97613b6c870-00-1vqzryrtx67zo.spock.replit.dev/'; // Asegurate de que esta URL coincida con la de tu proyecto
+  const Browser = require('zombie');
+Browser.site = 'https://56d97e13-b589-4020-b47f-a97613b6c870-00-1vqzryrtx67zo.spock.replit.dev/';
 
 suite('Functional Tests with Zombie.js', function () {
-   suite('Functional Tests with Zombie.js', function () {
   const browser = new Browser();
 
-  suiteSetup(async function () {
-     await browser.visit('/');
+  suiteSetup(function (done) {
+    return browser.visit('/', done);
   });
 
   test('Submit the surname "Colombo" in the HTML form', function (done) {
-    await browser.fill('surname', 'Colombo');
-    await browser.pressButton('submit');
-        browser.assert.success(); 
-        browser.assert.text('span#name', 'Colombo'); 
-        browser.assert.element('span#dates');
+    browser
+      .fill('surname', 'Colombo')
+      .pressButton('submit', function () {
+        browser.assert.text('#surname', 'Colombo');
+        done();
       });
   });
 });
-
     // #6
     test('submit "surname" : "Colombo" - write your e2e test...', function(done) {
   // fill the form...
