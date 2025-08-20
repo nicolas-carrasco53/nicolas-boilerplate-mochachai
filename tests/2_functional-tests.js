@@ -68,43 +68,46 @@ suite('Functional Tests', function () {
     });
   });
 
-  suite('"Famous Italian Explorers" form', function () {
-    const Browser = require('zombie');
-    Browser.site = 'https://56d97e13-b589-4020-b47f-a97613b6c870-00-1vqzryrtx67zo.spock.replit.dev/';
+  const Browser = require('zombie');
+const chai = require('chai');
+const assert = chai.assert;
 
-    suite('Functional Tests with Zombie.js', function () {
-      const browser = new Browser();
+Browser.site = 'http://localhost:3000/';
+const browser = new Browser();
 
-      suiteSetup(function (done) {
-        return browser.visit('/', done);
+suiteSetup(function(done) {
+  return browser.visit('/', done); // 
+});
+
+suite('Functional Tests with Zombie.js', function () {
+
+  suite('Headless browser', function() {
+    test('should have a working "site" property', function() {
+      assert.isNotNull(browser.site);
+    });
+  });
+
+  suite('"Famous Italian Explorers" form', function() {
+
+    // #5
+    test('Submit the surname "Colombo" in the HTML form', function(done) {
+      browser.fill('surname', 'Colombo').pressButton('submit', function() {
+        browser.assert.success();
+        browser.assert.text('span#name', 'Cristoforo');
+        browser.assert.text('span#surname', 'Colombo');
+        browser.assert.elements('span#dates', 1);
+        done();
       });
+    });
 
-      // #5
-      test('Submit the surname "Colombo" in the HTML form', function (done) {
-        browser
-          .fill('surname', 'Colombo')
-          .pressButton('Submit', function () {
-            browser.assert.text('#surname', 'Colombo');
-            done();
-          });
-      });
-
-      // #6
-      test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
-        browser
-          .fill('surname', 'Colombo')
-          .pressButton('Submit', function () {
-            // assert that status is OK 200
-            browser.assert.success();
-            // assert that the text inside the element 'span#name' is 'Cristoforo'
-            browser.assert.text('span#name', 'Cristoforo');
-            // assert that the text inside the element 'span#surname' is 'Colombo'
-            browser.assert.text('span#surname', 'Colombo');
-            // assert that the element(s) 'span#dates' exist and their count is 1
-            browser.assert.element('span#dates', 1);
-
-            done();
-          });
+    // #6
+    test('Submit the surname "Vespucci" in the HTML form', function(done) {
+      browser.fill('surname', 'Vespucci').pressButton('submit', function() {
+        browser.assert.success();
+        browser.assert.text('span#name', 'Amerigo');
+        browser.assert.text('span#surname', 'Vespucci');
+        browser.assert.elements('span#dates', 1);
+        done();
       });
     });
   });
