@@ -69,45 +69,43 @@ suite('Functional Tests', function () {
   });
 
   const Browser = require('zombie');
-const chai = require('chai');
-const assert = chai.assert;
+  Browser.site = 'http://localhost:3000/';
+  const browser = new Browser();
 
-Browser.site = 'http://localhost:3000/';
-const browser = new Browser();
-
-suiteSetup(function(done) {
-  return browser.visit('/', done); // 
-});
-
-suite('Functional Tests with Zombie.js', function () {
-
-  suite('Headless browser', function() {
-    test('should have a working "site" property', function() {
-      assert.isNotNull(browser.site);
-    });
+  suiteSetup(function (done) {
+    return browser.visit('/', done);
   });
 
-  suite('"Famous Italian Explorers" form', function() {
+  suite('Functional Tests with Zombie.js', function () {
 
-    // #5
-    test('Submit the surname "Colombo" in the HTML form', function(done) {
-      browser.fill('surname', 'Colombo').pressButton('submit', function() {
-        browser.assert.success();
-        browser.assert.text('span#name', 'Cristoforo');
-        browser.assert.text('span#surname', 'Colombo');
-        browser.assert.elements('span#dates', 1);
-        done();
+    suite('Headless browser', function () {
+      test('should have a working "site" property', function () {
+        assert.isNotNull(browser.site);
       });
     });
 
-    // #6
-    test('Submit the surname "Vespucci" in the HTML form', function(done) {
-      browser.fill('surname', 'Vespucci').pressButton('submit', function() {
-        browser.assert.success();
-        browser.assert.text('span#name', 'Amerigo');
-        browser.assert.text('span#surname', 'Vespucci');
-        browser.assert.elements('span#dates', 1);
-        done();
+    suite('"Famous Italian Explorers" form', function () {
+
+      // #5
+      test('Submit the surname "Colombo" in the HTML form', function (done) {
+        browser.fill('surname', 'Colombo').pressButton('submit', function () {
+          browser.assert.success();
+          browser.assert.text('span#name', 'Cristoforo');
+          browser.assert.text('span#surname', 'Colombo');
+          browser.assert.elements('span#dates', 1);
+          done();
+        });
+      });
+
+      // #6
+      test('Submit the surname "Vespucci" in the HTML form', function (done) {
+        browser.fill('surname', 'Vespucci').pressButton('submit', function () {
+          browser.assert.success();
+          browser.assert.text('span#name', 'Amerigo');
+          browser.assert.text('span#surname', 'Vespucci');
+          browser.assert.elements('span#dates', 1);
+          done();
+        });
       });
     });
   });
