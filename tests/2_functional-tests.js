@@ -89,7 +89,7 @@ suite('Functional Tests', function () {
       chai.request(server)
           .put('/travellers')
           .send({ 
-            surname: "da Verrazzano" 
+            surname: "da Verrazzano",
             name: "Giovanni"
           })
         .end(function (err, res) {
