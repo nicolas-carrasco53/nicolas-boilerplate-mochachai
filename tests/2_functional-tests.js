@@ -86,6 +86,8 @@ suite('Functional Tests with Zombie.js', function () {
       .pressButton('submit', function () { // Presiona el botón con name o id "submit"
         browser.assert.success(); // Verifica que la respuesta fue exitosa
         browser.assert.text('span#name', 'Colombo'); // Verifica que el resultado esperado aparece en el DOM
+        browser.assert.text('span#name', 'Colombo');
+        browser.assert.element('span#dates', 1);
         done();
       });
   });
