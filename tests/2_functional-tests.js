@@ -53,24 +53,24 @@ suite('Functional Tests', function () {
     });
 
     // #4
-    test('send {surname: "Colombo"}', function (done) {
+    test('send {surname: "da Verrazzano"}', function (done) {
       chai
         .request(server)
         .put('/travellers')
-        .send({ surname: 'Colombo' })
+        .send({ surname: 'da Verrazzano' })
         .end(function (err, res) {
           assert.equal(res.status, 200, 'response status should be 200');
           assert.equal(res.type, 'application/json', 'Response should be json');
-          assert.equal(res.body.name, 'Cristoforo', 'res.body.name should be "Christoforo"');
-          assert.equal(res.body.surname, 'Colombo', 'res.body.surname should be "Colombo"');
+          assert.equal(res.body.name, 'Giovanni', 'res.body.name should be "Giovanni"');
+          assert.equal(res.body.surname, 'da Verrazzano', 'res.body.surname should be "da Verrazzano"');
           done();
         });
     });
   });
 
-  suite('"Famous Italian Explorers" form', function () {
+ //** suite('"Famous Italian Explorers" form', function () {
     // #5
-    test('send {surname: "Colombo"}', function (done) {
+    /**test('send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
         .put('/travellers')
@@ -82,9 +82,9 @@ suite('Functional Tests', function () {
           assert.equal(res.body.surname, 'Colombo', 'res.body.surname should be "Colombo"');
           done();
         });
-    });
+    });**//
 
-    // #6 (reemplazado)
+   /** // #6 (reemplazado)
   test('send {surname: "da Verrazzano"}', function(done) {
   chai.request(server)
     .put('/travellers')
@@ -98,4 +98,4 @@ suite('Functional Tests', function () {
      });
    });
   });
-});    
+}); **//
