@@ -85,7 +85,6 @@ suite('Functional Tests', function () {
         });
     });
     */
-  
   // #6 (reemplazado)
 /**     
   test('send {surname: "da Verrazzano"}', function(done) {
