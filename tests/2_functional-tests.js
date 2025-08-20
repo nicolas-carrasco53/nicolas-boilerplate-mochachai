@@ -95,9 +95,14 @@ suite('Functional Tests with Zombie.js', function () {
 
     // #6
     test('Submit the surname "Vespucci" in the HTML form', function (done) {
-      assert.fail();
-
-      done();
+      browser.fill('surname','Vespucci')
+                   .pressButton('submit', () => {
+               browser.assert.success()
+               browser.assert.text('span#name', 'Amerigo')
+               browser.assert.text('span#name', 'Vespucci')
+               browser.assert.element('span#dates', 1)
+            done();
+        })               
     });
   });
 });
