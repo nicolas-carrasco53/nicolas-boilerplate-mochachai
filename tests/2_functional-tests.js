@@ -106,7 +106,7 @@ suite('Functional Tests', function () {
               browser.assert.success();
               browser.assert.text('span#name', 'Cristoforo');
               browser.assert.text('span#surname', 'Colombo');
-              browser.assert.elements('span#dates',);
+              assert.equal(browser.queryALL('span#dates').length,1);
               done();
             });
           });
