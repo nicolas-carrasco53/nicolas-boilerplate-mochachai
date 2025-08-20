@@ -88,7 +88,8 @@ suite('Functional Tests', function () {
       test('Submit the surname "Colombo" in the HTML form', function (done) {
         browser
           .fill('surname', 'Colombo')
-          .pressButton('submit', function () {
+          .then(() => {
+          browser.pressButton('submit', function () {
             browser.assert.success();
             browser.assert.text('span#name', 'Cristoforo');
             browser.assert.text('span#surname', 'Colombo');
