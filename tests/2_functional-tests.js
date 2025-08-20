@@ -74,21 +74,19 @@ suite('Functional Tests', function () {
 Browser.site = 'https://56d97e13-b589-4020-b47f-a97613b6c870-00-1vqzryrtx67zo.spock.replit.dev/'; // Asegurate de que esta URL coincida con la de tu proyecto
 
 suite('Functional Tests with Zombie.js', function () {
+   suite('Functional Tests with Zombie.js', function () {
   const browser = new Browser();
 
-  suiteSetup(function (done) {
-    browser.visit('/', done);
+  suiteSetup(async function () {
+     await browser.visit('/');
   });
 
   test('Submit the surname "Colombo" in the HTML form', function (done) {
-    browser
-      .fill('surname', 'Colombo') // Rellena el campo con name="surname"
-      .pressButton('submit', function () { // Presiona el botón con name o id "submit"
-        browser.assert.success(); // Verifica que la respuesta fue exitosa
-        browser.assert.text('span#name', 'Colombo'); // Verifica que el resultado esperado aparece en el DOM
-        browser.assert.text('span#name', 'Colombo');
-        browser.assert.element('span#dates', 1);
-        done();
+    await browser.fill('surname', 'Colombo');
+    await browser.pressButton('submit');
+        browser.assert.success(); 
+        browser.assert.text('span#name', 'Colombo'); 
+        browser.assert.element('span#dates');
       });
   });
 });
