@@ -93,7 +93,7 @@ suite('Functional Tests', function () {
               browser.assert.success();
               browser.assert.text('span#name', 'Cristoforo');
               browser.assert.text('span#surname', 'Colombo');
-              browser.assert.elements('span#dates', 1); // ✅ CORREGIDO
+              browser.assert.elements('span#dates', 1);
               done();
             });
           });
@@ -105,11 +105,11 @@ suite('Functional Tests', function () {
           .fill('surname', 'Vespucci')
           .then(() => {
             browser.pressButton('submit', function () {
-              browser.assert.success();
-              browser.assert.text('span#name', 'Amerigo');
-              browser.assert.text('span#surname', 'Vespucci');
-              browser.assert.elements('span#dates', 1);
-              done();
+              browser.assert.success(); // ✅ Verifica status 200
+              browser.assert.text('span#name', 'Amerigo'); // ✅ Verifica nombre
+              browser.assert.text('span#surname', 'Vespucci'); // ✅ Verifica apellido
+              browser.assert.elements('span#dates', 1); // ✅ Verifica que haya 1 elemento
+              done(); // ✅ Finaliza el test asincrónico
             });
           });
       });
