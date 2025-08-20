@@ -68,9 +68,9 @@ suite('Functional Tests', function () {
     });
   });
 
- /** suite('"Famous Italian Explorers" form', function () {
+   suite('"Famous Italian Explorers" form', function () {
     // #5
-     test('send {surname: "Colombo"}', function (done) {
+     /**test('send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
         .put('/travellers')
