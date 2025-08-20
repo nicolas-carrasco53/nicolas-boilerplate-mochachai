@@ -8,16 +8,27 @@ const runner = require('./test-runner');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+// ✅ Configurar Pug como motor de vistas
+app.set('view engine', 'pug');
+
+// ✅ Definir carpeta de vistas
+app.set('views', __dirname + '/views/pug');
+
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
-})
+});
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/hello', function (req, res) {
   const name = req.query.name || 'Guest';
   res.type('txt').send('hello ' + name);
-})
+});
+
+// ✅ Nueva ruta que renderiza una vista Pug
+app.get('/pug', function (req, res) {
+  res.render('index'); // renderiza views/pug/index.pug
+});
 
 const travellers = function (req, res) {
   let data = {};
@@ -61,7 +72,6 @@ const travellers = function (req, res) {
   res.json(data);
 };
 
-
 app.route('/travellers')
   .put(travellers);
 
@@ -81,7 +91,6 @@ app.get('/_api/get-tests', cors(), function (req, res, next) {
     });
   });
 
-
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log("Listening on port " + port);
@@ -96,7 +105,6 @@ app.listen(port, function () {
     }
   }, 1500);
 });
-
 
 module.exports = app; // for testing
 
