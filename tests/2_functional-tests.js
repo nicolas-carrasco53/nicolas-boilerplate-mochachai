@@ -85,7 +85,7 @@ suite('Functional Tests', function () {
     });
 
     // #6 (reemplazado)
-  test('send {surname: 'da Verrazzano'}', function(done) {
+  test('send {surname: "da Verrazzano"}', function(done) {
   chai.request(server)
     .put('/travellers')
     .send({ surname: 'da Verrazzano'})
