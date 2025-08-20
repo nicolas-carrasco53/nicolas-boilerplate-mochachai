@@ -83,7 +83,7 @@ suite('Functional Tests', function () {
       test('Submit the surname "Colombo" in the HTML form', function (done) {
         browser
           .fill('surname', 'Colombo')
-          .pressButton('submit', function () {
+          .pressButton('Submit', function () {
             browser.assert.text('#surname', 'Colombo');
             done();
           });
@@ -93,7 +93,7 @@ suite('Functional Tests', function () {
       test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
         browser
           .fill('surname', 'Colombo')
-          .pressButton('submit', function () {
+          .pressButton('Submit', function () {
             // assert that status is OK 200
             browser.assert.success();
             // assert that the text inside the element 'span#name' is 'Cristoforo'
