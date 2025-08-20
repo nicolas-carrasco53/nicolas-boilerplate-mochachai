@@ -82,7 +82,8 @@ suite('Functional Tests', function () {
           assert.equal(res.body.surname, 'Colombo', 'res.body.surname should be "Colombo"');
           done();
         });
-    });**//
+    });
+    **//
 
    /** // #6 (reemplazado)
   test('send {surname: "da Verrazzano"}', function(done) {
