@@ -85,15 +85,15 @@ suite('Functional Tests', function () {
     });
 
     // #6 (reemplazado)
-  test('send {surname: "da Verrazzano"}', function(done) {
+  test('send {surname: 'da Verrazzano'}', function(done) {
   chai.request(server)
-    .put("/travellers")
-    .send({ surname: "da Verrazzano" })
+    .put('/travellers')
+    .send({ surname: 'da Verrazzano'})
     .end((error, res) => {
-      assert.equal(res.status, 200);
-      assert.equal(res.type, "application/json");
-      assert.equal(res.body.name, "Giovanni");
-      assert.equal(res.body.surname, "da Verrazzano");  
+      assert.equal(res.status, 200)
+      assert.equal(res.type, 'application/json')
+      assert.equal(res.body.name, 'Giovanni')
+      assert.equal(res.body.surname, 'da Verrazzano')
       done();
      });
    });
